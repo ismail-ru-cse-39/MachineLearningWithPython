@@ -19,6 +19,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report, confusion_matrix
 from sklearn.metrics import jaccard_score
 import itertools
+from sklearn.metrics import log_loss
 
 url = 'https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-ML0101EN-SkillsNetwork/labs/Module%203/data/ChurnData.csv'
 #wget.download(url, '/FuelConsumption.csv')
@@ -116,4 +117,4 @@ np.set_printoptions(precision=2)
 plt.figure()
 plot_confusion_matrix(cnf_matrix, classes=['churn=1','churn=0'],normalize= False,  title='Confusion matrix')
 
-print (classification_report(y_test, yhat))
+print(log_loss(y_test, yhat_prob))
